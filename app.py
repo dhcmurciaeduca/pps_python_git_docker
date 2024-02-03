@@ -1,6 +1,7 @@
 # app.py
 #Importar en app.py la función frotar de bayeta.py
 from bayeta import frotar
+
 #Importar flask
 from flask import Flask,jsonify
 
