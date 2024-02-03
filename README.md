@@ -26,3 +26,29 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
 4. **Ejecutar aplicacion**
     python app.py esto muestra "hola, mundo"
 
+6. **Puesta en común**
+   - 1. Clonar repositorio:
+    git@github.com:dhcmurciaeduca/pps_python_git_docker.git
+
+   - 2. Cambiar al repositorio:
+    cd nombre_del_repositorio
+   
+   - 3. Configurar Entorno:
+    Instala Python. Seguir pasos del P1**Instalación de Python:**
+
+    Crea un entorno virtual. Seguir pasos del P2**Crear un Entorno Virtual:**
+    
+    Instala las dependencias del proyecto: Seguir pasos del P3**Dependencias**
+
+   - 4. Desarrollo:
+    Crear rama:
+    git checkout -b nueva_rama...
+    Cada colaborador trabaja en su rama correspondiente.
+
+    Realizar cambios y asegurarse de que funcionan, una vez hecho subir cambios:
+    git add .
+    git commit -m "Mensaje commit"
+    
+
+   -Sube tus cambios a GitHub:
+    git push origin rama_nueva...
