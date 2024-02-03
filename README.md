@@ -52,3 +52,11 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
 
    -Sube tus cambios a GitHub:
     git push origin rama_nueva...
+
+8. **Despliegue seguro**
+   - 1. Crea/Descarga fichero Dockerfile multifase(dockerfile).
+   - 2. Crea/Descarga el fichero .dockerignore(.dockerignore)
+   - 3. Construye la imagen, despliega un contenedor y prueba que funcione.
+      - 1. docker build -t pps_contenedor .
+      - 2. docker run -d --name pps_contenedor -p 5001:5000 pps_contenedor
+   
