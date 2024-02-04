@@ -9,7 +9,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return frotar(5)
+    frases = frotar(5)
+    return jsonify({'frases': frases})
 
 @app.route('/frotar/<int:n_frases>', methods=['GET'])
 def obtener_frases(n_frases):
@@ -17,8 +18,4 @@ def obtener_frases(n_frases):
     return jsonify({'frases': frases})
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
-
-#print("Hola, mundo")
-#print(frotar())
+    app.run(host='0.0.0.0')

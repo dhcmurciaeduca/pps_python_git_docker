@@ -78,3 +78,4 @@ xlrd==1.2.0
 youtube-dl==2021.12.17
 zipp==1.0.0
 Flask==2.1.1
+pymongo

@@ -59,4 +59,8 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
    - 3. Construye la imagen, despliega un contenedor y prueba que funcione.
       - 1. docker build -t pps_contenedor .
       - 2. docker run -d --name pps_contenedor -p 5001:5000 pps_contenedor
+9. **Despliegue correcto en contenedor docker**
+   - 1. apt update
+   - 2. apt install curl
+   - 3. apt install nano
    
