@@ -2,7 +2,7 @@
 FROM python:3.9-slim AS builder
 
 # Establecer directorio de trabajo
-WORKDIR /app
+WORKDIR /pps_python_git_docker
 
 # Copiar el archivo de requerimientos
 COPY requirements.txt .
@@ -11,10 +11,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Fase de ejecución
-FROM python:3.9-slim
+FROM python:3.9-slim AS runner
 
 # Establecer directorio de trabajo
-WORKDIR /app
+WORKDIR /pps_python_git_docker
 
 # Copiar solo los archivos necesarios de la fase de resolución de dependencias
 COPY --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
