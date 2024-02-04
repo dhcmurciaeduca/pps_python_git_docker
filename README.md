@@ -63,4 +63,18 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
    - 1. apt update
    - 2. apt install curl
    - 3. apt install nano
+
+10. **Redes y MongoDB**
+   - 1. Levanta un contenedor con la imagen de Mongo. Búscala en https://hub.docker.com:
+   docker run --name mongoimg -d mongo
+
+   - 2. Ejecuta el script de Python de Moodle y comprueba que funciona adecuadamente.
+   python3 prueba_mongo.py
+
+   - 3. Haz los cambios que consideres que necesita para que funcione su ejecución en un
+   contenedor de Docker (acuérdate de lo del nombre del contenedor de Mongo en lugar de
+   localhost, deben estar en la misma red)
+   docker network create red
+   docker network connect red mongoimg
+   docker network connect red pps_contenedor
    
