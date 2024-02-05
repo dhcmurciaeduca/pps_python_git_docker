@@ -66,15 +66,16 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
 
 10. **Redes y MongoDB**
    - 1. Levanta un contenedor con la imagen de Mongo. Búscala en https://hub.docker.com:
-   docker run --name mongoimg -d mongo
+   docker run --name mongoimg2 -d mongo
 
-   - 2. Ejecuta el script de Python de Moodle y comprueba que funciona adecuadamente.
-   python3 prueba_mongo.py
+   - 2. Dentro de la carpeta del proyecto pps_python_git_docker/
+   ejecutar el comando: docker build -t pps_contenedor . 
+   y luego ejecutar: docker run -d --name pps_contenedor -p 5000:5000 pps_contenedor
 
-   - 3. Haz los cambios que consideres que necesita para que funcione su ejecución en un
-   contenedor de Docker (acuérdate de lo del nombre del contenedor de Mongo en lugar de
-   localhost, deben estar en la misma red)
+   - 3. Conectamos ambos contenedores a la misma red con estos comandos:
    docker network create red
    docker network connect red mongoimg
    docker network connect red pps_contenedor
+
+
    
