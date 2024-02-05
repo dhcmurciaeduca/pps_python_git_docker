@@ -79,3 +79,8 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
 
 
    
+11. **DOCKER COMPOSE**
+   1. Instalar Docker-compose. apt install docker-compose
+   2. Descargar el "compose.yml" para desplegar ambos contenedores simultaneamente.
+   3. Modificación en el .dockerignore para que no copie "compose.yml"
+   4. Ejecutar docker-compose up
