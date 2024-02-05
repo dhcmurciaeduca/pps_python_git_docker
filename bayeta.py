@@ -8,19 +8,39 @@ def frotar(n_frases: int = 1) -> list:
     # Construir la ruta al archivo frases.txt
     frases_file = os.path.join(script_dir, 'frases.txt')
     
+    # Leer el contenido del archivo frases.txt
     with open(frases_file, 'r') as archivo:
-        lista_de_frases = archivo.readlines()
+        lista_de_frases = [frase.strip() for frase in archivo.readlines()]
+
+    # Conexión con el motor de Mongo (nombre del contenedor de Mongo: "nombre_del_contenedor_mongo")
+    cliente_mongo = MongoClient('mongodb://mongoimg2:27017/')
     
-    lista_de_frases = [frase.strip() for frase in lista_de_frases]
+    # Conexión con la BD (la crea si no existe)
+    bd = cliente_mongo['bayeta']
     
-    # Llamar al método del fichero de Mongo
+    # Conexión con la colección (en MongoDB se llama "colección" en lugar de "tabla")
+    frases_auspiciosas = bd['frases_auspiciosas']
+    
+    # Comprobar si la colección está vacía antes de insertar los datos
+    if frases_auspiciosas.count_documents({}) == 0:
+        # Insertar el contenido del archivo frases.txt en la colección
+        datos = [{"frase": frase} for frase in lista_de_frases]
+        frases_auspiciosas.insert_many(datos)
+        print("Datos insertados en la base de datos MongoDB.")
+    else:
+        print("La colección ya contiene datos. No se realizaron inserciones.")
+
+    # Obtener frases aleatorias
     frases_aleatorias = obtener_frases_mongo(n_frases)
+    
+    # Cerrar cliente
+    cliente_mongo.close()
     
     return frases_aleatorias
 
 def obtener_frases_mongo(n_frases: int) -> list:
     # Conexión con el motor de Mongo (nombre del contenedor de Mongo: "nombre_del_contenedor_mongo")
-    cliente_mongo = MongoClient('mongodb://mi_mongo:27017/')
+    cliente_mongo = MongoClient('mongodb://mongoimg2:27017/')
     
     # Conexión con la BD (la crea si no existe)
     bd = cliente_mongo['bayeta']
