@@ -6,11 +6,11 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - mongoimg2
+      - mongoimg
 
-  mongoimg2:
+  mongoimg:
     image: mongo:latest
-    container_name: mongoimg2
+    container_name: mongoimg
     ports:
       - "27017:27017"
     volumes:
