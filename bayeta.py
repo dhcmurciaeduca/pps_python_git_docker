@@ -13,7 +13,7 @@ def frotar(n_frases: int = 1) -> list:
         lista_de_frases = [frase.strip() for frase in archivo.readlines()]
 
     # Conexión con el motor de Mongo (nombre del contenedor de Mongo: "nombre_del_contenedor_mongo")
-    cliente_mongo = MongoClient('mongodb://mongoimg2:27017/')
+    cliente_mongo = MongoClient('mongodb://mongoimg:27017/')
     
     # Conexión con la BD (la crea si no existe)
     bd = cliente_mongo['bayeta']
@@ -40,7 +40,7 @@ def frotar(n_frases: int = 1) -> list:
 
 def obtener_frases_mongo(n_frases: int) -> list:
     # Conexión con el motor de Mongo (nombre del contenedor de Mongo: "nombre_del_contenedor_mongo")
-    cliente_mongo = MongoClient('mongodb://mongoimg2:27017/')
+    cliente_mongo = MongoClient('mongodb://mongoimg:27017/')
     
     # Conexión con la BD (la crea si no existe)
     bd = cliente_mongo['bayeta']

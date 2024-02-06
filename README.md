@@ -66,7 +66,7 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
 
 10. **Redes y MongoDB**
    - 1. Levanta un contenedor con la imagen de Mongo. Búscala en https://hub.docker.com:
-   docker run --name mongoimg2 -d mongo
+   docker run --name mongoimg -d mongo
 
    - 2. Dentro de la carpeta del proyecto pps_python_git_docker/
    ejecutar el comando: docker build -t pps_contenedor . 
