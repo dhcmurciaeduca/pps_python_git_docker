@@ -58,3 +58,22 @@ def obtener_frases_mongo(n_frases: int) -> list:
     frases = [frase['frase'] for frase in frases_aleatorias]
     
     return frases
+
+def insertar_frases(frases: list):
+    # Conexión con el motor de Mongo (nombre del contenedor de Mongo: "nombre_del_contenedor_mongo")
+    cliente_mongo = MongoClient('mongodb://mongoimg:27017/')
+    
+    # Conexión con la BD (la crea si no existe)
+    bd = cliente_mongo['bayeta']
+    
+    # Conexión con la colección (en MongoDB se llama "colección" en lugar de "tabla")
+    frases_auspiciosas = bd['frases_auspiciosas']
+    
+    # Insertar las frases proporcionadas en la lista
+    datos = [{"frase": frase} for frase in frases]
+    frases_auspiciosas.insert_many(datos)
+    print("Frases insertadas en la base de datos MongoDB.")
+    
+    # Cerrar cliente
+    cliente_mongo.close()
+

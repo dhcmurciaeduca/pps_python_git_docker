@@ -84,3 +84,7 @@ Para que no hayan errores y todo este correcto seguir estos pasos:
    2. Descargar el "compose.yml" para desplegar ambos contenedores simultaneamente.
    3. Modificación en el .dockerignore para que no copie "compose.yml"
    4. Ejecutar docker-compose up
+
+12. **12. Añadir frases auspiciosas**
+   1. Ejecutar para añadir nuevas frases: curl -X POST -H "Content-Type: application/json" -d '{"frases": ["Nueva frase 1 añadida a la base de datos", "Nueva frase 2 añadida a la base de datos"]}' http://localhost:5000/frotar/add
+   2. Se han modificado bayeta.py y app.py para crear un nuevo endppoint que llame a la funcion que inserta frases en la base de datos.
